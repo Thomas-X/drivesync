@@ -22,7 +22,7 @@ class Synchronizer
 
   def initialize
     if check_lock
-      Log.log_message "Exiting."
+      # Log.log_message "Exiting."
       exit 1
     end
     begin
@@ -276,7 +276,7 @@ class Synchronizer
   def check_lock
     if File.file? LOCK_PATH
       pid = File.read LOCK_PATH
-      Log.log_message "There is already a sync in progress! - PID : #{pid}"
+      Log.log_message "ERR:PID#{pid}"
       true
     else
       false
